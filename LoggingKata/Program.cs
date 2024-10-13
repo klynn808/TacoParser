@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.IO;
 using GeoCoordinatePortable;
+using System.Collections.Generic;
 
 namespace LoggingKata
 {
@@ -28,8 +29,7 @@ namespace LoggingKata
             var parser = new TacoParser();
 
             // Use the Select LINQ method to parse every line in lines collection
-            var locations = lines.Select(parser.Parse).ToArray();
-
+            ITrackable[] locations = lines.Select(line => parser.Parse(line)).ToArray();
   
             // Complete the Parse method in TacoParser class first and then START BELOW ----------
 
